@@ -2,23 +2,33 @@
 
 {% block content %}
 <h1>Signup</h1>
-<form method='POST'>
-    <label for="username">Username: 
-        <input type="text" id="username" name="username" value="{{username}}" />
-    </label>
-    <br>
-    <label for="password">Password: 
-        <input type="password" id="password" name="password" value="{{password}}" />
-    </label>
-    <br>
-    <label for="verify">Verify Password: 
-        <input type="password" id="verify" name="verify" value="{{verify}}" />
-    </label for="email">
-    <br>
-    <label>Email (optional): 
-        <input type="email" id="email" name="email" value="{{email}}" />
-    </label>
-    <br>
-    <input type="submit" value="Sign Me Up!" />
+
+<form action='/welcome' method='POST'>
+    <table>
+        <tr>
+            <td><label for="username">Username: </label></td>
+            <td><input type="text" id="username" name="username" value="{{username}}" /></td>
+            <td>{% if error %}<span class="error">{{ error }}</span>{% endif %}</td>
+        </tr>
+        <tr>
+            <td><label for="password">Password: </label></td>
+            <td><input type="password" id="password" name="password" value="{{password}}" /></td>
+            <td>{% if error %}<span class="error">{{ error }}</span>{% endif %}</td>
+        </tr>
+        <tr>
+            <td><label for="verify">Verify Password: </label></td>
+            <td><input type="password" id="verify" name="verify" value="{{verify}}" /></td>
+            <td>{% if error %}<span class="error">{{ error }}</span>{% endif %}</td>
+        </tr>
+        <tr>
+            <td><label>Email (optional): </label></td>
+            <td><input type="email" id="email" name="email" value="{{email}}" /></td>
+            <td>{% if error %}<span class="error">{{ error }}</span>{% endif %}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Sign Me Up!" /></td>
+        </tr>
+    </table>
 </form>
+
 {% endblock %}
